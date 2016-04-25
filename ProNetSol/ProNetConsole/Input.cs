@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProNetLib
+namespace ProNetConsole
 {
-    public class Class1
+    class Input
     {
+        public string comando;
+        public string valor;
     }
 }

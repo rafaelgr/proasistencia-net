@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProNetConsole", "ProNetConsole\ProNetConsole.csproj", "{0148DD62-6146-48F5-B074-158877266AED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProNetLib", "ProNetLib\ProNetLib.csproj", "{7CAF6968-3D84-4F61-BCD7-3CB4D992C80E}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0148DD62-6146-48F5-B074-158877266AED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0148DD62-6146-48F5-B074-158877266AED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0148DD62-6146-48F5-B074-158877266AED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0148DD62-6146-48F5-B074-158877266AED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CAF6968-3D84-4F61-BCD7-3CB4D992C80E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CAF6968-3D84-4F61-BCD7-3CB4D992C80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CAF6968-3D84-4F61-BCD7-3CB4D992C80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CAF6968-3D84-4F61-BCD7-3CB4D992C80E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
