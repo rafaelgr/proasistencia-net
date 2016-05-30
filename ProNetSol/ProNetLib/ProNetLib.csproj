@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="SQLAny.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLCLientes.cs" />
+    <Compile Include="SQLEmpresas.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
