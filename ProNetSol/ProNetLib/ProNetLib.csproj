@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comercial.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="SQLAny.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQLComercial.cs" />
     <Compile Include="SQLCLientes.cs" />
     <Compile Include="SQLEmpresas.cs" />
   </ItemGroup>

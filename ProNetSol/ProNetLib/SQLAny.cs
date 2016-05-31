@@ -35,6 +35,12 @@ namespace ProNetLib
                 case "cliente":
                     return await Cliente(v[1], v[2]);
                     break;
+                case "comerciales":
+                    return await Comerciales(v[1]);
+                    break;
+                case "comercial":
+                    return await Comercial(v[1], v[2]);
+                    break;
                 default:
                     return String.Format("ERROR: Unknow command [{0}]", input);
                     break;

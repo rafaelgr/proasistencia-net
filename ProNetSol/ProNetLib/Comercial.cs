@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProNetLib
 {
-    public class Cliente
+    public class Comercial
     {
-        public int clienteId;
-        public string proId;
+        public int comercialId;
+        public int proId;
         public string nif;
         public string nombre;
         public DateTime fechaAlta;
