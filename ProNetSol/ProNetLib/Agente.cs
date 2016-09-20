@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProNetLib
 {
-    public class Cliente
+    public class Agente
     {
-        public int clienteId;
+        public int comercialId;
         public string proId;
         public string nif;
         public string nombre;
@@ -26,6 +26,5 @@ namespace ProNetLib
         public string fax;
         public string email;
         public string observaciones;
-        public string cuenta;
     }
 }

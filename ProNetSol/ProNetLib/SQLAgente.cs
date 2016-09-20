@@ -10,11 +10,11 @@ namespace ProNetLib
 {
     public partial class SQLAny
     {
-        public async Task<string> Clientes(string dsn)
+        public async Task<string> Agentes(string dsn)
         {
-            string queryString = "SELECT * FROM clientes_locales";
+            string queryString = "SELECT * FROM agrupaciones";
 
-            IList<Cliente> clientes = new List<Cliente>();
+            IList<Agente> agentes = new List<Agente>();
             using (OdbcConnection connection = new OdbcConnection("DSN=" + dsn))
             {
                 OdbcCommand command = new OdbcCommand(queryString, connection);
@@ -25,20 +25,20 @@ namespace ProNetLib
                 OdbcDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    clientes.Add(ReadClienteDr(reader));
+                    agentes.Add(ReadAgenteDr(reader));
                 }
 
                 // Call Close when done reading.
                 reader.Close();
             }
-            return JsonConvert.SerializeObject(clientes); ;
+            return JsonConvert.SerializeObject(agentes); ;
         }
 
-        public async Task<string> Cliente(string dsn, string codigo)
+        public async Task<string> Agente(string dsn, string codigo)
         {
-            string queryString = "SELECT * FROM clientes_locales WHERE codigo = '" + codigo + "'";
+            string queryString = "SELECT * FROM agrupaciones WHERE codigo = '" + codigo + "'";
 
-            IList<Cliente> clientes = new List<Cliente>();
+            IList<Agente> clientes = new List<Agente>();
             using (OdbcConnection connection = new OdbcConnection("DSN=" + dsn))
             {
                 OdbcCommand command = new OdbcCommand(queryString, connection);
@@ -49,7 +49,7 @@ namespace ProNetLib
                 OdbcDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    clientes.Add(ReadClienteDr(reader));
+                    clientes.Add(ReadAgenteDr(reader));
                 }
 
                 // Call Close when done reading.
@@ -58,40 +58,35 @@ namespace ProNetLib
             return JsonConvert.SerializeObject(clientes); ;
         }
 
-        public Cliente ReadClienteDr(OdbcDataReader reader)
+        public Agente ReadAgenteDr(OdbcDataReader reader)
         {
-            Cliente c = new Cliente();
+            Agente c = new Agente();
             c.proId = (string)reader["codigo"];
-            c.nombre = (string)reader["nombre"];
-            if (!reader.IsDBNull(2))
-                c.nif = (string)reader["nif"];
-            if (!reader.IsDBNull(6))
+            if (!reader.IsDBNull(12))
+                c.nombre = (string)reader["nombre"];
+            if (!reader.IsDBNull(11))
                 c.fechaAlta = (DateTime)reader["fecha_alta"];
-            if (!reader.IsDBNull(7))
+            if (!reader.IsDBNull(23))
                 c.fechaBaja = (DateTime?)reader["fecha_baja"];
             c.activa = true;
-            if ((string)reader["activo"] == "N")
-                c.activa = false;
-            if (!reader.IsDBNull(10))
-                c.contacto1 = (string)reader["contacto_1"];
-            if (!reader.IsDBNull(11))
-                c.contacto2 = (string)reader["contacto_2"];
-            if (!reader.IsDBNull(12))
-                c.direccion = (string)reader["direccion"];
-            if (!reader.IsDBNull(15))
-                c.codPostal = (string)reader["distrito"];
-            if (!reader.IsDBNull(13))
-                c.poblacion = (string)reader["poblacion"];
+            if (!reader.IsDBNull(22))
+                c.contacto1 = (string)reader["contacto"];
             if (!reader.IsDBNull(14))
-                c.provincia = (string)reader["provincia"];
+                c.direccion = (string)reader["domicilio"];
+            if (!reader.IsDBNull(17))
+                c.codPostal = (string)reader["distrito"];
+            if (!reader.IsDBNull(16))
+                c.poblacion = (string)reader["poblacion"];
             if (!reader.IsDBNull(18))
-                c.fax = (string)reader["fax"];
+                c.provincia = (string)reader["provincia"];
             if (!reader.IsDBNull(19))
-                c.email = (string)reader["email"];
+                c.telefono1 = (string)reader["telefono"];
+            if (!reader.IsDBNull(20))
+                c.fax = (string)reader["fax"];
             if (!reader.IsDBNull(21))
+                c.email = (string)reader["mail"];
+            if (!reader.IsDBNull(2))
                 c.observaciones = (string)reader["notas"];
-            if (!reader.IsDBNull(28))
-                c.cuenta = (string)reader["cuenta_corriente"];
             return c;
         }
     }
